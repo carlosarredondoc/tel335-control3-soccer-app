@@ -45,7 +45,7 @@ export const Match = sequelize.define('Match', {
     allowNull: true,
     type: DataTypes.INTEGER,
   },
-},{
+}, {
   timestamps: false
 });
 /*
@@ -78,34 +78,50 @@ export const resetPassword = async (email) => {
 
 
 
-export const createNewMatch = async (nameMatch,nameSoccerField,firstTeamName,secondTeamName,numberOfPlayers,region,city,location,owner) => {
-  let match = await Match.create({ nameMatch,nameSoccerField,firstTeamName,secondTeamName,numberOfPlayers,region,city,location,owner})
-  if (match){
-    return'El partido ha sido creado'
-  }else{
+export const createNewMatch = async (nameMatch, nameSoccerField, firstTeamName, secondTeamName, numberOfPlayers, region, city, location, owner) => {
+  let match = await Match.create({ nameMatch, nameSoccerField, firstTeamName, secondTeamName, numberOfPlayers, region, city, location, owner })
+  if (match) {
+    return 'El partido ha sido creado'
+  } else {
     return "Error al crear el partido"
   }
 }
 
-export const updateMatch = async (id,nameMatch,nameSoccerField,firstTeamName,secondTeamName,numberOfPlayers,region,city,location,owner) => {
-  let match = await Match.findOne({where: {id}})
-  match.update({nameMatch,nameSoccerField,firstTeamName,secondTeamName,numberOfPlayers,region,city,location,owner})
-  if (match){
-    return'El partido ha editado exitosamente'
-  }else{
+export const updateMatch = async (id, nameMatch, nameSoccerField, firstTeamName, secondTeamName, numberOfPlayers, region, city, location, owner) => {
+  let match = await Match.findOne({ where: { id } })
+  match.update({ nameMatch, nameSoccerField, firstTeamName, secondTeamName, numberOfPlayers, region, city, location, owner })
+  if (match) {
+    return 'El partido se ha editado exitosamente'
+  } else {
     return "Error al editar el partido"
   }
+}
+
+export const deleteMatch = async (id) => {
+  let match = await Match.findOne({ where: { id } })
+  if (match) {
+    try {
+      await match.destroy()
+      return 'El partido se ha eliminado exitosamente'
+    } catch (error) {
+      return "Error al eliminar el partido"
+    }
+
+  } else {
+    return 'El partido a eliminar no existe'
+  }
+
 }
 
 
 export const createtableMatch = async () => {
   await Match.sync({ force: true })
   console.log("La tabla del modelo Match ha sido creada o recreada");
-  await createNewMatch('Partido Callejero','Cancha Calle','Paltas','Platanos',11,'V region','La Calera','Calle 1')
-  await createNewMatch('Partido Santiaguino','Cancha Pasto','Catolica','Colo Colo',11,'Metropolitana','Vitacura','Av Montt 342')
+  await createNewMatch('Partido Callejero', 'Cancha Calle', 'Paltas', 'Platanos', 11, 'Valparaíso', 'La Calera', 'Calle 1')
+  await createNewMatch('Partido Santiaguino', 'Cancha Pasto', 'Catolica', 'Colo Colo', 11, 'Metropolitana de Santiago', 'Vitacura', 'Av Montt 342')
   //const user = await User.findOne({where:{id:1}})
   //const match = await Match.findOne({where:{id:1}})
-  
+
   /*
   await createNewUser('Nombre_Ayudante','Apellido_Ayudate','ayudante@soccerapp.cl','123456')
   for (let N=0; N<10;N++){
@@ -124,3 +140,4 @@ export const createtableMatch = async () => {
   console.log(await user.compareHash('123'))
   */
 }
+

@@ -4,18 +4,42 @@ exports.getAllMatch = async (ctx) => {
     ctx.body = await matchActions.getAllMatch()
     return ctx
 }
+exports.getMatchById = async (ctx) => {
+    let {message,match} = await matchActions.getMatchById(ctx.params)
+    ctx.body = {message, match}
+    return ctx
+}
+
+exports.getMatchsByRegion = async(ctx) =>{
+    let {message,match} = await matchActions.getMatchsByRegion(ctx.params)
+    ctx.body = {message, match}
+    return ctx
+}
+exports.getMatchsByCity= async(ctx) =>{
+    let {message,match} = await matchActions.getMatchsByCity(ctx.params)
+    ctx.body = {message, match}
+    return ctx
+}
 
 exports.createNewMatch = async (ctx) => {
     let message = await matchActions.createNewMatch(ctx.request.body)
     ctx.body = { message }
     return ctx
 }
-
-exports.updateMatch = async (ctx) => {
-    let {message,token} = await matchActions.updateMatch(ctx.request.body)
-    ctx.body = { message,token}
+exports.deleteMatch = async (ctx) => {
+    let message = await matchActions.deleteMatch(ctx.params)
+    
+    ctx.body = { message }
     return ctx
 }
+
+exports.updateMatch = async (ctx) => {
+    let message = await matchActions.updateMatch(ctx.request.body)
+    ctx.body = { message}
+    return ctx
+}
+
+
 
 /*
 exports.removeUser = (ctx) => {

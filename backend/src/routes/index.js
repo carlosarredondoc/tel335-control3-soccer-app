@@ -1,15 +1,15 @@
 import Router from 'koa-router'
 
 import {getAllUsers,createNewUser,changePassword,login} from './user/user.router'
-import {getAllMatch,createNewMatch,updateMatch} from './match/match.router'
-import { getCitiesForRegions,getCitiesForRegion } from './location/location.router'
+import {getAllMatch,getMatchsByRegion,getMatchsByCity,getMatchById,createNewMatch,updateMatch,deleteMatch} from './match/match.router'
+import { getCitiesForRegions} from './location/location.router'
 const router = new Router()
 
 
 
 // Location
 
-router.get('/api/location/allcities',getCitiesForRegions )
+router.get('/api/location/allcities',getCitiesForRegions)
 
 
 //Users
@@ -29,10 +29,21 @@ router.post('/api/users/resetpassword',changePassword)
 
 
 //Matches
+// Obtiene todos los match
+router.get('/api/match',getAllMatch)
 
-router.get('/api/matches',getAllMatch)
-router.post('/api/matches',createNewMatch)
-router.put('/api/matches',updateMatch)
+// Obtiene los match por region
+router.get('/api/match/region/:region',getMatchsByRegion)
+// Obtiene los match por ciudad
+router.get('/api/match/city/:city',getMatchsByCity)
+//Obtiene el match por su id
+router.get('/api/match/:id',getMatchById)
+// Se le envian todos los datos al match para crearlo
+router.post('/api/match',createNewMatch)
+// Se sobreescriben los datos del match
+router.put('/api/match',updateMatch)
+// Se elminina el match por id
+router.delete('/api/match/:id',deleteMatch)
 
 /*
 router.get('/api/users/userInfo', ctx => {

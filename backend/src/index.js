@@ -6,6 +6,7 @@ import router from './routes/index'
 import {connectDB} from './db'
 import { createtableUser } from './models/user.models'
 import { createtableMatch } from './models/match.models'
+import { createtableUser_Match } from './models/user_match.models'
 
 import Koajwt from 'koa-jwt'
 
@@ -14,12 +15,12 @@ import Koajwt from 'koa-jwt'
 connectDB()
 createtableUser()
 createtableMatch()
-
+createtableUser_Match()
 const app = new Koa()
 app.use(cors())
 
 
-const port = 8000
+const port = 3000
 
 app.use(bodyParser({ multipart: true, urlencoded: true }))
 
@@ -38,7 +39,7 @@ app.use(function(ctx, next){
 
 const jwtSecret = 'jwtSecret'
 const unprotected = [
-    pathToRegexp('/api/users/login'),pathToRegexp('/api/users/register'),pathToRegexp('/api/users/resetpassword'),pathToRegexp('/api/location/allcities'),pathToRegexp('/api/location/:region*/allcities')
+    pathToRegexp('/api/users/login'),pathToRegexp('/api/users/register'),pathToRegexp('/api/users/resetpassword'),pathToRegexp('/api/location/allcities'),pathToRegexp('/api/location/:region*/allcities'),pathToRegexp('/api/match/:id*'),pathToRegexp('/api/match/region/:region*'),pathToRegexp('/api/match/city/:city*')
 ];
 app.use(Koajwt({secret:jwtSecret}).unless({
     path:unprotected
