@@ -15,19 +15,19 @@ exports.getMatchById = async (matchData) => {
 
 exports.getMatchsByRegion = async (matchData) => {
     let match = await Match.findAll({where:{region :matchData.region}})
-    if (match) {
+    if (match!=0) {
         return {"message":"Partidos Encontrados",match}
     }else {
-        return "No se han encontrado partidos por region"
+        return {"No se han encontrado partidos por region",match}
     }
 
 }
 exports.getMatchsByCity = async (matchData) => {
     let match = await Match.findAll({where:{city: matchData.city}})
-    if (match) {
+    if (match!=0) {
         return {"message":"Partidos Encontrados",match}
     }else {
-        return "No se han encontrado partidos por ciudad"
+        return {"message":"No se han encontrado partidos por ciudad",match}
     }
 
 }
