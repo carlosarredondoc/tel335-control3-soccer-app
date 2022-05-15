@@ -123,8 +123,8 @@ export const deleteMatch = async (id) => {
 export const createtableMatch = async () => {
   await Match.sync({ force: true })
   console.log("La tabla del modelo Match ha sido creada o recreada");
-  await createNewMatch('Partido Callejero', 'Cancha Calle', 'Paltas', 'Platanos', 11, 'Valparaíso', 'La Calera', 'Calle 1')
-  await createNewMatch('Partido Santiaguino', 'Cancha Pasto', 'Catolica', 'Colo Colo', 11, 'Metropolitana de Santiago', 'Vitacura', 'Av Montt 342')
+  await createNewMatch('Partido Callejero', 'Cancha Calle', 'Paltas', 'Platanos', 11, 'Valparaíso', 'La Calera', 'Calle 1',1)
+  await createNewMatch('Partido Santiaguino', 'Cancha Pasto', 'Catolica', 'Colo Colo', 11, 'Metropolitana de Santiago', 'Vitacura', 'Av Montt 342',2)
   //const user = await User.findOne({where:{id:1}})
   //const match = await Match.findOne({where:{id:1}})
 

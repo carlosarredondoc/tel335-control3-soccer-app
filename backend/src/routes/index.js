@@ -1,7 +1,7 @@
 import Router from 'koa-router'
 
 import {getAllUsers,createNewUser,changePassword,login} from './user/user.router'
-import {getAllMatch,getMatchsByRegion,getMatchsByCity,getMatchById,createNewMatch,updateMatch,deleteMatch,linkUserWithMatchFirstTeam,linkUserWithMatchSecondTeam,getAllUsersInMatch} from './match/match.router'
+import {getAllMatch,getMatchsByRegion,getMatchsByCity,getMatchById,createNewMatch,updateMatch,deleteMatch,linkUserWithMatchFirstTeam,linkUserWithMatchSecondTeam,getAllUsersInMatch,getMatchsByUser} from './match/match.router'
 import { getCitiesForRegions} from './location/location.router'
 const router = new Router()
 
@@ -36,8 +36,13 @@ router.get('/api/match',getAllMatch)
 router.get('/api/match/region/:region',getMatchsByRegion)
 // Obtiene los match por ciudad
 router.get('/api/match/city/:city',getMatchsByCity)
+
+// Obtener partidos dueños
+router.get('/api/match/user',getMatchsByUser)
+
 //Obtiene el match por su id
 router.get('/api/match/:id',getMatchById)
+
 // Se le envian todos los datos al match para crearlo
 router.post('/api/match',createNewMatch)
 // Se sobreescriben los datos del match

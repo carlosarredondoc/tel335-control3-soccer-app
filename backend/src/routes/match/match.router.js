@@ -55,7 +55,11 @@ exports.getAllUsersInMatch= async (ctx) =>{
     ctx.body = message
     return ctx
 }
-
+exports.getMatchsByUser= async (ctx) => {
+    let message = await matchActions.getMatchsByUser(ctx.header.authorization)
+    ctx.body = message
+    return ctx
+} 
 
 /*
 exports.removeUser = (ctx) => {

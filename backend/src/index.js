@@ -20,7 +20,7 @@ const app = new Koa()
 app.use(cors())
 
 
-const port = 14000
+const port = 3000
 
 app.use(bodyParser({ multipart: true, urlencoded: true }))
 

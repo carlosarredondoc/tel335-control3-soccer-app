@@ -119,3 +119,24 @@ exports.getAllUsersInMatch = async(matchData) =>{
     }
     return data
 }
+
+exports.getMatchsByUser = async (authorization) =>{
+
+    
+    let token = authorization
+    let payload = jwt.decode(token.split(' ')[1], jwtSecret);
+    let matchs_owner = await Match.findAll({where:{owner: payload.id}})
+
+    let matchs = await User_Match.findAll({where:{userId: payload.id}})
+
+    let data = {"owner_matchs":matchs_owner, "other_matchs":[]}
+    for (const match of matchs) {
+        let match_find = await Match.findOne({where: {id: match.matchId }})
+        if(match_find.owner != payload.id){
+            data.other_matchs.push(match_find)
+        }
+    }
+    
+    return data
+    
+}
