@@ -20,71 +20,71 @@ const CrearPartido = ({ setCrearPartido }) => {
                     <div className='crearPartido-label'>
                         <input
                             type='text'
-                            name='usuario'
-                            id='correo'
+                            name='nombre_partido'
+                            id='nombre_partido'
                             className='crearPartido-input'
                             placeholder='Nombre del partido'
                         />
                     </div>
                     <div className='crearPartido-label'>
                         <input
-                            type='password'
-                            name='password'
-                            id='password'
+                            type='text'
+                            name='nombre_equipo_1'
+                            id='nombre_equipo_1'
                             className='crearPartido-input'
                             placeholder='Nombre del equipo 1'
                         />
                     </div>
                     <div className='crearPartido-label'>
                         <input
-                            type='password'
-                            name='password'
-                            id='password'
+                            type='text'
+                            name='nombre_equipo_2'
+                            id='nombre_equipo_2'
                             className='crearPartido-input'
                             placeholder='Nombre del equipo 2'
                         />
                     </div>
                     <div className='crearPartido-label'>
                         <input
-                            type='password'
-                            name='password'
-                            id='password'
+                            type='text'
+                            name='cantidad_de_personas_por_equipo'
+                            id='cantidad_de_personas_por_equipo'
                             className='crearPartido-input'
                             placeholder='Cantidad de personas por equipo'
                         />
                     </div>
                     <div className='crearPartido-label'>
                         <input
-                            type='password'
-                            name='password'
-                            id='password'
+                            type='text'
+                            name='nombre_cancha'
+                            id='nombre_cancha'
                             className='crearPartido-input'
                             placeholder='Nombre de la Cancha'
                         />
                     </div>
                     <div className='crearPartido-label'>
                         <input
-                            type='password'
-                            name='password'
-                            id='password'
+                            type='text'
+                            name='nombre_calle'
+                            id='nombre_calle'
                             className='crearPartido-input'
                             placeholder='Ubicacion (Calle)'
                         />
                     </div>
                     <div className='crearPartido-label'>
                         <input
-                            type='password'
-                            name='password'
-                            id='password'
+                            type='text'
+                            name='nombre_region'
+                            id='nombre_region'
                             className='crearPartido-input'
                             placeholder='Region'
                         />
                     </div>
                     <div className='crearPartido-label'>
                         <input
-                            type='password'
-                            name='password'
-                            id='password'
+                            type='text'
+                            name='nombre_ciudad'
+                            id='nombre_ciudad'
                             className='crearPartido-input'
                             placeholder='Ciudad'
                         />
