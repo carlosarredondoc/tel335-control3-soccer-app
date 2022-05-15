@@ -4,18 +4,20 @@ import Login from './componentes/Login';
 import SelectorZona from './componentes/SelectorZona';
 
 const App = () => {
-  const [sesion, setSesion] = useState(true)
-  const [selectZona, setSelectZona] = useState(true)
+  const [sesion, setSesion] = useState(false)
+  const [selectZona, setSelectZona] = useState(false)
+  const [token, setToken] = useState('')
+  const [zona, setZona] = useState('')
   return (
     <>
       {
         sesion ?
           selectZona ?
-            <ListaPartidos setSelectZona={setSelectZona} />
+            <ListaPartidos token={token} zona={zona} setSelectZona={setSelectZona} />
             :
-            <SelectorZona setSelectZona={setSelectZona} setSesion={setSesion} />
+            <SelectorZona setZona={setZona} setSelectZona={setSelectZona} setSesion={setSesion} />
           :
-          <Login setSesion={setSesion} />
+          <Login setToken={setToken} setSesion={setSesion} />
       }
     </>
   );

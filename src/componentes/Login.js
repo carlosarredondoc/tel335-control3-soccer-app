@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import balon from './../images/balon.png'
 import player from './../images/player.png'
+import axios from 'axios'
+const url = 'http://localhost:8000/'
 
-const Login = ({ setSesion }) => {
-    const [usuario, setUsuario] = useState('')
-    const [password, setPassword] = useState('')
+const Login = ({ setSesion, setToken }) => {
+    const [usuario, setUsuario] = useState('profesor@soccerapp.cl')
+    const [password, setPassword] = useState('12345')
+
 
     const onChange = (e) => {
         if (e.target.name === 'usuario') {
@@ -14,16 +17,18 @@ const Login = ({ setSesion }) => {
         }
     }
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
-
-        if (usuario === '' && password === '') {
+        const respuesta = await axios.post(url + 'api/users/login', { email: usuario, password: password })
+        if (respuesta.data.token) {
+            setToken(respuesta.data.token)
             setSesion(true)
         } else {
             setUsuario('')
             setPassword('')
         }
     }
+
     return (
         <div>
             <form onSubmit={onSubmit} className='login-formulario'>
@@ -57,7 +62,7 @@ const Login = ({ setSesion }) => {
                     <button className='login-boton' type='submit'><img src={balon} className="logo-balon" alt='balon' />Ingresar</button>
                 </div>
             </form>
-            <img src={player} alt='' className='logo-player'/>
+            <img src={player} alt='' className='logo-player' />
         </div>
     );
 }

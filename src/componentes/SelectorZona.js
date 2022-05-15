@@ -1,21 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navbar } from 'react-bootstrap';
 import balon from './../images/balon.png'
+import axios from 'axios'
+const url = 'http://localhost:8000/'
 
-const SelectorZona = ({ setSelectZona, setSesion }) => {
+const SelectorZona = ({ setSelectZona, setSesion, setZona }) => {
+    const [regiones, setRegiones] = useState([])
+    
+    const getRegiones = async () => {
+        const respuesta = await axios.get(url + 'api/location/allcities')
+        setRegiones(Object.keys(respuesta.data).map((region) => (
+            region
+        )))
+    }
+
+    useEffect(() => {
+        getRegiones()
+    }, [])
+    const handleZona = (e) => {
+        setZona(e.target.value)
+        setSelectZona(true)
+    }
     return (
         <div className='selector-contenedor'>
             <Navbar>
                 <button className='selector-navbar-boton' onClick={() => setSesion(false)}><img src={balon} className="selector-navbar-logo-balon" alt='balon' />Cerrar Sesión</button>
             </Navbar>
             <div>
-            <img src={balon} className="selector-logo" alt='balon' />
-            <select className='form-select form-select-lg selector-select' aria-label="">
+                <img src={balon} className="selector-logo" alt='balon' />
+                <select className='form-select form-select-lg selector-select'>
                     <option defaultValue>Zona Mas Cercana</option>
-                    <option value={1} onClick={() => setSelectZona(true)}>Zona 1</option>
-                    <option value={2}>Zona 2</option>
-                    <option value={3}>Zona 3</option>
-                    <option value={4}>Zona 4</option>
+                    {
+                        regiones.map((region,key) => (
+                            <option key={key} value={region} onClick={(e) => handleZona(e)}>{region}</option>
+                        ))
+                    }
                 </select>
             </div>
         </div>

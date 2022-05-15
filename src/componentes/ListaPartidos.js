@@ -7,14 +7,15 @@ import PartidosEnLaZona from './PartidosEnLaZona';
 import MisPartidos from './MisPartidos';
 import CrearPartido from './CrearPartido';
 
-const ListaPartidos = ({ setSelectZona }) => {
+const ListaPartidos = ({ setSelectZona, zona ,token}) => {
     const [misPartidos, setMisPartidos] = useState(false)
     const [crearPartido, setCrearPartido] = useState(false)
+
     return (
         <>
             {
                 misPartidos ? <MisPartidos setMisPartidos={setMisPartidos} /> :
-                    crearPartido ? <CrearPartido setCrearPartido={setCrearPartido} /> :
+                    crearPartido ? <CrearPartido token={token} setCrearPartido={setCrearPartido} /> :
                         <div className='partidos-contenedor'>
                             <Navbar className='partidos-navbar'>
                                 <div className='partidos-nav-izq'>
@@ -26,7 +27,7 @@ const ListaPartidos = ({ setSelectZona }) => {
                                 </div>
                             </Navbar>
                             <div className='partidos-card'>
-                                <PartidosEnLaZona setSelectZona={setSelectZona} />
+                                <PartidosEnLaZona token={token} zona={zona} />
                             </div>
                         </div>
             }
