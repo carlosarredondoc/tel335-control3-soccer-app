@@ -9,11 +9,15 @@ export const User_Match = sequelize.define('User_Match', {
     primaryKey: true,
     type: DataTypes.INTEGER,
   },
-  UserId: {
+  userId: {
     allowNull: false,
     type: DataTypes.INTEGER,
   },
-  MatchId: {
+  matchId: {
+    allowNull: false,
+    type: DataTypes.INTEGER,
+  },
+  team: {
     allowNull: false,
     type: DataTypes.INTEGER,
   },

@@ -1,6 +1,7 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../db';
 import { User } from './user.models';
+import { User_Match } from './user_match.models';
 
 export const Match = sequelize.define('Match', {
   id: {
@@ -101,9 +102,14 @@ export const deleteMatch = async (id) => {
   let match = await Match.findOne({ where: { id } })
   if (match) {
     try {
+      let people = await User_Match.findAll({where:{matchId:id}})
+      for (const p of people) {
+        await p.destroy()
+      }
       await match.destroy()
       return 'El partido se ha eliminado exitosamente'
     } catch (error) {
+      console.log(error)
       return "Error al eliminar el partido"
     }
 

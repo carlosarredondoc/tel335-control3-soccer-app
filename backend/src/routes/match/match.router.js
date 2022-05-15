@@ -39,6 +39,22 @@ exports.updateMatch = async (ctx) => {
     return ctx
 }
 
+exports.linkUserWithMatchFirstTeam = async (ctx) =>{
+    let message = await matchActions.linkUserWithMatchFirstTeam(ctx.request.body,ctx.header.authorization)
+    ctx.body = { message}
+    return ctx
+}
+exports.linkUserWithMatchSecondTeam = async (ctx) =>{
+    let message = await matchActions.linkUserWithMatchSecondTeam(ctx.request.body,ctx.header.authorization)
+    ctx.body = { message}
+    return ctx
+}
+
+exports.getAllUsersInMatch= async (ctx) =>{
+    let message = await matchActions.getAllUsersInMatch(ctx.request.body)
+    ctx.body = message
+    return ctx
+}
 
 
 /*
