@@ -14,7 +14,7 @@ const ListaPartidos = ({ setSelectZona, zona ,token}) => {
     return (
         <>
             {
-                misPartidos ? <MisPartidos setMisPartidos={setMisPartidos} /> :
+                misPartidos ? <MisPartidos token={token} setMisPartidos={setMisPartidos} /> :
                     crearPartido ? <CrearPartido token={token} setCrearPartido={setCrearPartido} /> :
                         <div className='partidos-contenedor'>
                             <Navbar className='partidos-navbar'>
