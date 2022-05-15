@@ -32,7 +32,7 @@ exports.login = async (userData) => {
     if (user && user.email && await user.compareHash(userData.password)){
         let payload = {
             exp:Date.now() + tokenExpiresTime,
-            email:user.id
+            id:user.id
         }
         let token = jwt.encode(payload, jwtSecret)
  

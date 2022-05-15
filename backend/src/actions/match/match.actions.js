@@ -1,5 +1,7 @@
 import {createNewMatch,updateMatch,deleteMatch,Match} from './../../models/match.models'
 
+import {jwtSecret} from './../../index'
+import jwt from'jwt-simple'
 exports.getAllMatch = async () => {
     return await Match.findAll()
 }
@@ -18,7 +20,7 @@ exports.getMatchsByRegion = async (matchData) => {
     if (match!=0) {
         return {"message":"Partidos Encontrados",match}
     }else {
-        return {"No se han encontrado partidos por region",match}
+        return {"message":"No se han encontrado partidos por region",match}
     }
 
 }
@@ -32,7 +34,11 @@ exports.getMatchsByCity = async (matchData) => {
 
 }
 
-exports.createNewMatch = async (matchData) => {
+exports.createNewMatch = async (matchData,autorization) => {
+    let token = autorization
+    console.log(autorization)
+    let payload = jwt.decode(token.split(' ')[1], jwtSecret);
+    console.log(payload)
     const match = { 
         nameMatch: matchData.nameMatch,
         nameSoccerField: matchData.nameSoccerField,
@@ -41,8 +47,10 @@ exports.createNewMatch = async (matchData) => {
         numberOfPlayers: matchData.numberOfPlayers,
         region: matchData.region,
         city: matchData.city,
-        location: matchData.location}
-    return await createNewMatch(match.nameMatch,match.nameSoccerField,match.firstTeamName,match.secondTeamName,match.numberOfPlayers,match.region,match.city,match.location)
+        location: matchData.location,
+        owner: payload.id
+    }
+    return await createNewMatch(match.nameMatch,match.nameSoccerField,match.firstTeamName,match.secondTeamName,match.numberOfPlayers,match.region,match.city,match.location,match.owner)
 }
 
 exports.deleteMatch = async (matchData) => {

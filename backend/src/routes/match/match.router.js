@@ -22,7 +22,7 @@ exports.getMatchsByCity= async(ctx) =>{
 }
 
 exports.createNewMatch = async (ctx) => {
-    let message = await matchActions.createNewMatch(ctx.request.body)
+    let message = await matchActions.createNewMatch(ctx.request.body,ctx.header.authorization)
     ctx.body = { message }
     return ctx
 }

@@ -37,7 +37,7 @@ app.use(function(ctx, next){
     });
 });
 
-const jwtSecret = 'jwtSecret'
+export const jwtSecret = 'jwtSecret'
 const unprotected = [
     pathToRegexp('/api/users/login'),pathToRegexp('/api/users/register'),pathToRegexp('/api/users/resetpassword'),pathToRegexp('/api/location/allcities'),pathToRegexp('/api/location/:region*/allcities'),pathToRegexp('/api/match/:id*'),pathToRegexp('/api/match/region/:region*'),pathToRegexp('/api/match/city/:city*')
 ];
