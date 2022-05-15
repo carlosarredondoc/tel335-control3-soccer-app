@@ -8,9 +8,9 @@ const SelectorZona = ({ setSelectZona, setSesion }) => {
             <Navbar>
                 <button className='selector-navbar-boton' onClick={() => setSesion(false)}><img src={balon} className="selector-navbar-logo-balon" alt='balon' />Cerrar Sesión</button>
             </Navbar>
+            <div>
             <img src={balon} className="selector-logo" alt='balon' />
-            <div className='selector-select'>
-                <select className='form-select form-select-lg' aria-label="">
+            <select className='form-select form-select-lg selector-select' aria-label="">
                     <option defaultValue>Zona Mas Cercana</option>
                     <option value={1} onClick={() => setSelectZona(true)}>Zona 1</option>
                     <option value={2}>Zona 2</option>

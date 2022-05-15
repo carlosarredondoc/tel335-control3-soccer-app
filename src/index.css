@@ -57,7 +57,14 @@ body {
   border-radius: 20px;
   color: #0e7023;
 }
-
+.login-pass-label {
+  font-family: "Kanit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+  text-decoration-line: underline;
+}
 .login-boton {
   width: 30%;
   background: #fff;
@@ -90,11 +97,10 @@ body {
 }
 
 .logo-player {
-  height: 45%;
-  width: 45%;
-  position: absolute;
-  left: 5%;
-  top: 30%;
+  height: 30%;
+  width: 30%;
+  margin-top: -25%;
+  margin-left: 10%;
   z-index: -1;
 }
 
@@ -125,8 +131,6 @@ body {
 .selector-navbar-logo-balon {
   height: 15%;
   width: 15%;
-  margin: 0;
-  padding: 0;
   float: left;
   background-color: none;
   background-image: none;
@@ -138,12 +142,21 @@ body {
   width: 15%;
   background-color: white;
   border-radius: 100%;
-  margin-bottom: 60px;
+  margin-bottom: 10%;
 }
 
 .selector-select {
-  width: 30%;
-  margin-left: 35%;
+  text-align: center;
+  width: 90%;
+  margin: 0% 5%;
+  transition: 0.3s ease all;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 1.5% 5%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  background-color: #fff;
+  color: #0e7023;
 }
 
 /*--- Lista De Partidos ---*/
@@ -217,6 +230,7 @@ body {
 
 .partidos-card {
   border-radius: 10px;
+  margin-bottom: 2%;
   width: 100%;
   height: 100%;
   padding: 5% 10%;
@@ -232,20 +246,37 @@ body {
   padding: 1% 5%;
   width: 100%;
   margin-bottom: 10%;
+  text-align: justify;
 }
-.partidos-card-header-titulo{
+.partidos-card-header-titulo {
+  width: 55%;
   float: left;
 }
 
 .partidos-card-header-filtro {
+  width: 45%;
   float: right;
+}
+.partidos-card-header-filtro-select {
+  text-align: center;
+  width: 100%;
+  margin: 0% 5%;
+  transition: 0.3s ease all;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 1.5% 5%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  background-color: #f8f8f8;
+  color: #0e7023;
 }
 
 .partidos-card-partidos {
   width: 100%;
   height: 450px;
-  background: #F8F8F8;
+  background: #f8f8f8;
   border-radius: 80px;
+  margin: 5% 0%;
 }
 
 .partidos-card-partidos-titulo {
@@ -267,11 +298,11 @@ body {
   float: right;
 }
 
-.partidos-card-partidos-boton{
+.partidos-card-partidos-boton {
   margin-top: 5%;
   width: 100%;
   padding: 5% 5%;
-  background: #0D7229;
+  background: #0d7229;
   border: none;
   border-radius: 80px;
   cursor: pointer;
@@ -279,4 +310,99 @@ body {
   font-family: Arial, sans-serif;
   font-size: 16px;
   color: #fff;
+}
+
+/*--- Mis Partidos ---*/
+.misPartidos-nav {
+  width: 50%;
+  padding: 1.3%;
+  float: left;
+  font-size: 20px;
+  background: #fff;
+  border: none;
+  border-radius: 80px;
+  color: #0e7023;
+}
+.misPartidos-header {
+  padding: 1% 5%;
+  width: 100%;
+  margin-bottom: 10%;
+}
+
+.misPartidos-header-titulo {
+  float: left;
+}
+.misPartidos-header-filtros {
+  text-align: center;
+  float: right;
+  width: 25%;
+  margin: 0% 5%;
+  transition: 0.3s ease all;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 1.5% 5%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  background-color: #f8f8f8;
+  color: #0e7023;
+}
+
+/*--- Crear Partido ---*/
+.crearPartido-nav {
+  width: 50%;
+  padding: 1.3%;
+  float: left;
+  font-size: 20px;
+  background: #fff;
+  border: none;
+  border-radius: 80px;
+  color: #0e7023;
+}
+.crearPartido-formulario {
+  max-height: 600px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 20px;
+  margin: 20px 0 0 0;
+  text-align: center;
+}
+
+.crearPartido-label {
+  height: 60px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.crearPartido-input {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border: 2px solid #d1d1d1;
+  border-radius: 20px;
+  color: #0e7023;
+}
+
+.crearPartido-recuadro-boton {
+  text-align: center;
+  height: auto;
+}
+
+.crearPartido-boton {
+  width: 30%;
+  background: #0d7229;
+  display: inline-block;
+  padding: 20px;
+  border: none;
+  border-radius: 80px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  color: #fff;
+  font-size: 20px;
+}
+
+.crearPartido-boton:hover {
+  background: #e5e5e5;
+  color: #0e7023;
 }
