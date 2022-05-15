@@ -1,9 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Navbar } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 
 const CrearPartido = ({ setCrearPartido }) => {
+    const [state, setState] = useState({
+        nombre_partido: "",
+        nombre_equipo_1: "",
+        nombre_equipo_2: "",
+        cantidad_de_personas_por_equipo: "",
+        nombre_cancha: "",
+        nombre_calle: "",
+        nombre_region: "",
+        nombre_ciudad: ""
+    });
+
+    const handleChange = (event) => {
+        setState((prevProps) => ({
+            ...prevProps,
+            [event.target.name]: event.target.value,
+        }));
+    };
+
+    const handleSubmit = (event) => {
+        //send state
+    };
+
     return (
         <div className='partidos-contenedor'>
             <Navbar className='partidos-navbar'>
@@ -22,6 +44,8 @@ const CrearPartido = ({ setCrearPartido }) => {
                             type='text'
                             name='nombre_partido'
                             id='nombre_partido'
+                            value={state.nombre_partido}
+                            onChange={handleChange}
                             className='crearPartido-input'
                             placeholder='Nombre del partido'
                         />
@@ -31,6 +55,8 @@ const CrearPartido = ({ setCrearPartido }) => {
                             type='text'
                             name='nombre_equipo_1'
                             id='nombre_equipo_1'
+                            value={state.nombre_equipo_1}
+                            onChange={handleChange}
                             className='crearPartido-input'
                             placeholder='Nombre del equipo 1'
                         />
@@ -40,6 +66,8 @@ const CrearPartido = ({ setCrearPartido }) => {
                             type='text'
                             name='nombre_equipo_2'
                             id='nombre_equipo_2'
+                            value={state.nombre_equipo_2}
+                            onChange={handleChange}
                             className='crearPartido-input'
                             placeholder='Nombre del equipo 2'
                         />
@@ -49,6 +77,8 @@ const CrearPartido = ({ setCrearPartido }) => {
                             type='text'
                             name='cantidad_de_personas_por_equipo'
                             id='cantidad_de_personas_por_equipo'
+                            value={state.cantidad_de_personas_por_equipo}
+                            onChange={handleChange}
                             className='crearPartido-input'
                             placeholder='Cantidad de personas por equipo'
                         />
@@ -58,6 +88,8 @@ const CrearPartido = ({ setCrearPartido }) => {
                             type='text'
                             name='nombre_cancha'
                             id='nombre_cancha'
+                            value={state.nombre_cancha}
+                            onChange={handleChange}
                             className='crearPartido-input'
                             placeholder='Nombre de la Cancha'
                         />
@@ -67,6 +99,8 @@ const CrearPartido = ({ setCrearPartido }) => {
                             type='text'
                             name='nombre_calle'
                             id='nombre_calle'
+                            value={state.nombre_calle}
+                            onChange={handleChange}
                             className='crearPartido-input'
                             placeholder='Ubicacion (Calle)'
                         />
@@ -76,6 +110,8 @@ const CrearPartido = ({ setCrearPartido }) => {
                             type='text'
                             name='nombre_region'
                             id='nombre_region'
+                            value={state.nombre_region}
+                            onChange={handleChange}
                             className='crearPartido-input'
                             placeholder='Region'
                         />
@@ -85,6 +121,8 @@ const CrearPartido = ({ setCrearPartido }) => {
                             type='text'
                             name='nombre_ciudad'
                             id='nombre_ciudad'
+                            value={state.nombre_ciudad}
+                            onChange={handleChange}
                             className='crearPartido-input'
                             placeholder='Ciudad'
                         />
