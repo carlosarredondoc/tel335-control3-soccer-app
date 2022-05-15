@@ -1,0 +1,282 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: arial, sans-serif;
+  background-color: #2fa34f;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*--- Login ---*/
+.login-contenedor {
+  width: 100%;
+  height: 100%;
+  padding: 3%;
+  background-color: #2fa34f;
+}
+.login-formulario {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 20px;
+  margin: 20px 0 0 0;
+  text-align: center;
+}
+
+.login-title {
+  color: white;
+  font-family: "Kanit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 80px;
+  text-decoration-line: underline;
+  margin-bottom: 60px;
+}
+
+.login-label {
+  height: 60px;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.login-input {
+  width: 30%;
+  height: auto;
+  padding: 10px;
+  border: 2px solid #d1d1d1;
+  border-radius: 20px;
+  color: #0e7023;
+}
+
+.login-boton {
+  width: 30%;
+  background: #fff;
+  display: inline-block;
+  padding: 20px;
+  border: none;
+  border-radius: 80px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  color: #0e7023;
+  font-size: 20px;
+}
+
+.login-boton:hover {
+  background: #e5e5e5;
+  color: #0e7023;
+}
+
+.logo-balon {
+  height: 10%;
+  width: 10%;
+  margin: 0;
+  padding: 0;
+  float: left;
+  background-color: none;
+  background-image: none;
+  border-radius: 100%;
+}
+
+.logo-player {
+  height: 45%;
+  width: 45%;
+  position: absolute;
+  left: 5%;
+  top: 30%;
+  z-index: -1;
+}
+
+/*--- Selector ---*/
+.selector-contenedor {
+  width: 100%;
+  height: 100%;
+  padding: 3%;
+  background-color: #2fa34f;
+  text-align: center;
+  align-items: center;
+}
+
+.selector-navbar-boton {
+  width: 15%;
+  background: #fff;
+  display: inline-block;
+  padding: 20px;
+  border: none;
+  border-radius: 80px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  color: #0e7023;
+  font-size: 16px;
+}
+.selector-navbar-logo-balon {
+  height: 15%;
+  width: 15%;
+  margin: 0;
+  padding: 0;
+  float: left;
+  background-color: none;
+  background-image: none;
+  border-radius: 100%;
+}
+
+.selector-logo {
+  height: 15%;
+  width: 15%;
+  background-color: white;
+  border-radius: 100%;
+  margin-bottom: 60px;
+}
+
+.selector-select {
+  width: 30%;
+  margin-left: 35%;
+}
+
+/*--- Lista De Partidos ---*/
+.partidos-contenedor {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.partidos-navbar {
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.partidos-nav-izq {
+  width: 30%;
+  float: left;
+}
+.partidos-nav-der {
+  width: 70%;
+  float: right;
+}
+.partidos-nav-volver {
+  float: left;
+  width: 22%;
+  background: #fff;
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  color: #0e7023;
+}
+.partidos-nav-mios {
+  width: 50%;
+  padding: 1.3%;
+  float: left;
+  font-size: 20px;
+  background: #fff;
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  color: #0e7023;
+}
+.partidos-nav-crear {
+  text-align: center;
+  float: right;
+  width: 45%;
+  padding: 1%;
+  background: #fff;
+  border: none;
+  border-radius: 80px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  color: #0e7023;
+}
+.partidos-nav-crear-icon {
+  float: left;
+  width: 10%;
+  height: 10%;
+}
+
+.partidos-nav-icon {
+  height: 50%;
+  width: 30%;
+}
+
+.partidos-card {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 5% 10%;
+  text-align: center;
+  align-items: center;
+  background: #fff;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  color: #0e7023;
+}
+
+.partidos-card-header {
+  padding: 1% 5%;
+  width: 100%;
+  margin-bottom: 10%;
+}
+.partidos-card-header-titulo{
+  float: left;
+}
+
+.partidos-card-header-filtro {
+  float: right;
+}
+
+.partidos-card-partidos {
+  width: 100%;
+  height: 450px;
+  background: #F8F8F8;
+  border-radius: 80px;
+}
+
+.partidos-card-partidos-titulo {
+  padding: 3% 0%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.partidos-card-partidos-equipos {
+  width: 100%;
+  margin: 0% 1%;
+  padding: 0% 15%;
+}
+
+.partidos-card-partidos-equipo-izq {
+  float: left;
+}
+.partidos-card-partidos-equipo-der {
+  float: right;
+}
+
+.partidos-card-partidos-boton{
+  margin-top: 5%;
+  width: 100%;
+  padding: 5% 5%;
+  background: #0D7229;
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #fff;
+}
