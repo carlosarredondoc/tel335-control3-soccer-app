@@ -27,10 +27,3 @@ exports.login = async (ctx) =>{
     return ctx
 }
 
-/*
-exports.removeUser = (ctx) => {
-    userActions.removeUser(ctx.params.rol)
-    ctx.body = { message: 'User was removed' }
-    return ctx
-}
-*/

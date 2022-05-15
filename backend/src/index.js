@@ -9,7 +9,6 @@ import { createtableMatch } from './models/match.models'
 
 import Koajwt from 'koa-jwt'
 
-import jwt from'jwt-simple'
 
 
 connectDB()
@@ -20,7 +19,7 @@ const app = new Koa()
 app.use(cors())
 
 
-const port = 3000
+const port = 8000
 
 app.use(bodyParser({ multipart: true, urlencoded: true }))
 
@@ -30,7 +29,7 @@ app.use(function(ctx, next){
     return next().catch((err) => {
         if (401 == err.status) {
             ctx.status = 401;
-            ctx.body = 'Recurso Protegido, use el encabezado de Authorizacion (Authorization) para obtener acceso\n';
+            ctx.body = {'message':'Recurso Protegido, use el encabezado de Authorizacion (Authorization) para obtener acceso\n'}
         } else {
             throw err;
         }
@@ -39,7 +38,7 @@ app.use(function(ctx, next){
 
 const jwtSecret = 'jwtSecret'
 const unprotected = [
-    pathToRegexp('/api/users/login'),pathToRegexp('/api/users/register'),pathToRegexp('/api/users/resetpassword')
+    pathToRegexp('/api/users/login'),pathToRegexp('/api/users/register'),pathToRegexp('/api/users/resetpassword'),pathToRegexp('/api/location/allcities'),pathToRegexp('/api/location/:region*/allcities')
 ];
 app.use(Koajwt({secret:jwtSecret}).unless({
     path:unprotected
@@ -48,6 +47,6 @@ app.use(Koajwt({secret:jwtSecret}).unless({
 app.use(router.routes())
 
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
 })

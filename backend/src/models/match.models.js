@@ -75,6 +75,9 @@ export const resetPassword = async (email) => {
 */
 
 
+
+
+
 export const createNewMatch = async (nameMatch,nameSoccerField,firstTeamName,secondTeamName,numberOfPlayers,region,city,location,owner) => {
   let match = await Match.create({ nameMatch,nameSoccerField,firstTeamName,secondTeamName,numberOfPlayers,region,city,location,owner})
   if (match){

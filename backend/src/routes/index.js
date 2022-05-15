@@ -2,9 +2,14 @@ import Router from 'koa-router'
 
 import {getAllUsers,createNewUser,changePassword,login} from './user/user.router'
 import {getAllMatch,createNewMatch,updateMatch} from './match/match.router'
+import { getCitiesForRegions,getCitiesForRegion } from './location/location.router'
 const router = new Router()
 
 
+
+// Location
+
+router.get('/api/location/allcities',getCitiesForRegions )
 
 
 //Users
@@ -19,7 +24,7 @@ router.post('/api/users/register',createNewUser)
 //Hay que pasarle email y password y devolvera un token para autenticar todas las demas rutas
 router.post('/api/users/login',login)
 
-//Reinicia la clave de un usuario mediante post solo recibe el token
+//Reinicia la clave de un usuario mediante post solo recibe el email
 router.post('/api/users/resetpassword',changePassword)
 
 

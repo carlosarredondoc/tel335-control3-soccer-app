@@ -1,6 +1,6 @@
 import { createNewUser,resetPassword,User } from '../../models/user.models'
 const jwtSecret = 'jwtSecret'
-const tokenExpiresTime = 1000 * 20 // * 60 * 24 * 7
+const tokenExpiresTime = 1000 * 20  * 60 * 24 * 7
 import jwt from'jwt-simple'
 
 
@@ -27,9 +27,9 @@ exports.changePassword = async (userData) => {
 
 exports.login = async (userData) => {
     const user = await User.findOne({where: {email: userData.email}})
-    console.log(user)
+    //console.log(user)
     
-    if (user && user.id && await user.compareHash(userData.password)){
+    if (user && user.email && await user.compareHash(userData.password)){
         let payload = {
             exp:Date.now() + tokenExpiresTime,
             email:user.id
@@ -38,7 +38,7 @@ exports.login = async (userData) => {
  
         return {"message":"Login exitoso",token}
     }else {
-        userData = "Contraseña Incorrecta"
+        userData = "Email O Contraseña Incorrecta"
     }
     return userData
 }

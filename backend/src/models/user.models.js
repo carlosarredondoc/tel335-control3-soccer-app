@@ -32,12 +32,8 @@ export const User = sequelize.define('User', {
   timestamps: false
 })
 
-User.belongsTo(Match,{
-  through:'userid',
-})
-Match.belongsTo(User,{ 
-  through:'userid',
- })
+User.belongsToMany(Match, { through: 'user_matches' });
+Match.belongsToMany(User, { through: 'user_matches' });
 
 User.prototype.compareHash = async function(password) {
   const result = await bcrypt.compare(password, this.hashPassword);
