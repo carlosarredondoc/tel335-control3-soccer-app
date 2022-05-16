@@ -4,7 +4,7 @@ import player from './../images/player.png'
 import axios from 'axios'
 const url = 'http://localhost:8000/'
 
-const Login = ({ setSesion, setToken }) => {
+const Login = ({ setSesion, setToken, setIsUser }) => {
     const [usuario, setUsuario] = useState('profesor@soccerapp.cl')
     const [password, setPassword] = useState('12345')
 
@@ -60,6 +60,9 @@ const Login = ({ setSesion, setToken }) => {
                 </div>
                 <div>
                     <button className='login-boton' type='submit'><img src={balon} className="logo-balon" alt='balon' />Ingresar</button>
+                </div>
+                <div>
+                    <button className='login-boton' type='submit' onClick={() => setIsUser(false)}>Crear Usuario</button>
                 </div>
             </form>
             <img src={player} alt='' className='logo-player' />

@@ -3,11 +3,10 @@ import axios from 'axios'
 import BotonUnirse from './BotonUnirse';
 const url = 'http://localhost:8000/'
 
-const Partido = ({ ciudadPartido, token, zona, misPartidosB }) => {
+const Partido = ({ ciudadPartido, token, zona }) => {
     const [partidos, setPartidos] = useState([])
     const [usuariosEquipo1, setEquipo1] = useState(0)
     const [usuariosEquipo2, setEquipo2] = useState(0)
-    const [misPartidos, setMisPartidos] = useState([])
 
     const cargarPartido = async () => {
         const respuesta = await axios.get(url + 'api/match/region/' + zona, { headers: { 'Authorization': `Bearer ${token}` } })
@@ -44,12 +43,12 @@ const Partido = ({ ciudadPartido, token, zona, misPartidosB }) => {
                                         <div className='partidos-card-partidos-equipo-izq'>
                                             <h4>{partido.firstTeamName}</h4>
                                             <h4>Jugadores: {partido.numberOfPlayers} (Cupos {partido.numberOfPlayers - usuariosEquipo1})</h4>
-                                            <BotonUnirse cupos={partido.numberOfPlayers - usuariosEquipo1} />
+                                            <BotonUnirse usuariosEquipo1={usuariosEquipo1} setEquipo1={setEquipo1} id={partido.id} token={token} equipo={1} cupos={partido.numberOfPlayers - usuariosEquipo1} />
                                         </div>
                                         <div className='partidos-card-partidos-equipo-der'>
                                             <h4>{partido.secondTeamName}</h4>
                                             <h4>Jugadores: {partido.numberOfPlayers} (Cupos {partido.numberOfPlayers - usuariosEquipo2})</h4>
-                                            <BotonUnirse cupos={partido.numberOfPlayers - usuariosEquipo2} />
+                                            <BotonUnirse usuariosEquipo2={usuariosEquipo2} setEquipo2={setEquipo2} id={partido.id} token={token} equipo={2} cupos={partido.numberOfPlayers - usuariosEquipo2} />
                                         </div>
                                     </div>
                                 </div>
@@ -71,19 +70,18 @@ const Partido = ({ ciudadPartido, token, zona, misPartidosB }) => {
                                         <div className='partidos-card-partidos-equipo-izq'>
                                             <h4>{partido.firstTeamName}</h4>
                                             <h4>Jugadores: {partido.numberOfPlayers} (Cupos {partido.numberOfPlayers - usuariosEquipo1})</h4>
-                                            <BotonUnirse cupos={partido.numberOfPlayers - usuariosEquipo1} />
+                                            <BotonUnirse usuariosEquipo1={usuariosEquipo1} setEquipo1={setEquipo1} id={partido.id} token={token} equipo={1} cupos={partido.numberOfPlayers - usuariosEquipo1} />
                                         </div>
                                         <div className='partidos-card-partidos-equipo-der'>
                                             <h4>{partido.secondTeamName}</h4>
                                             <h4>Jugadores: {partido.numberOfPlayers} (Cupos {partido.numberOfPlayers - usuariosEquipo2})</h4>
-                                            <BotonUnirse cupos={partido.numberOfPlayers - usuariosEquipo2} />
+                                            <BotonUnirse usuariosEquipo2={usuariosEquipo2} setEquipo2={setEquipo2} id={partido.id} token={token} equipo={2} cupos={partido.numberOfPlayers - usuariosEquipo2} />
                                         </div>
                                     </div>
                                 </div>
                             )
                         })
             }
-
         </>
     );
 }

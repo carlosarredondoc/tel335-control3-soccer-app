@@ -113,7 +113,6 @@ const MisPartidos = ({ setMisPartidos, token }) => {
                                 )
                             })
                     }
-
                 </>
             </div>
         </div>
