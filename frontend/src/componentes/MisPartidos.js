@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Navbar } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft } from '@fortawesome/free-solid-svg-icons'
-import Partido from './Partido';
 import axios from 'axios'
 import Equipo from './Equipo';
 const url = 'http://localhost:8000/'
