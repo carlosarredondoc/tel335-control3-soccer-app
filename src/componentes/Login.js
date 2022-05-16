@@ -56,7 +56,6 @@ const Login = ({ setSesion, setToken, setIsUser }) => {
                             placeholder='Contraseña'
                         />
                     </div>
-                    <a className='login-pass-label' href='/'>¿Olvidaste tu contraseña?</a>
                 </div>
                 <div>
                     <button className='login-boton' type='submit'><img src={balon} className="logo-balon" alt='balon' />Ingresar</button>

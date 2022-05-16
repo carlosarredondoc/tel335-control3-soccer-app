@@ -7,9 +7,10 @@ import SelectorZona from './componentes/SelectorZona';
 const App = () => {
   const [sesion, setSesion] = useState(false)
   const [selectZona, setSelectZona] = useState(false)
-  const [isUser, setIsUser] = useState(false)
+  const [isUser, setIsUser] = useState(true)
   const [token, setToken] = useState('')
   const [zona, setZona] = useState('')
+
   return (
     <>
       {
@@ -22,7 +23,7 @@ const App = () => {
           isUser ?
             <Login setIsUser={setIsUser} setToken={setToken} setSesion={setSesion} />
             :
-            <CreateUser setIsUser={setIsUser}/>
+            <CreateUser setIsUser={setIsUser} />
       }
     </>
   );
