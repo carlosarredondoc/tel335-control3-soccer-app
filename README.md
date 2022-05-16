@@ -15,3 +15,10 @@ Repositorio del Control 3 del ramo Tel335 Diseño de Aplicaciones Web y Moviles,
 
 
 #### Por defecto el backend corre en el puerto 8000
+
+
+### Cuentas por defecto
+
+email:password
+- profesor@soccerapp.cl:12345
+- ayudante@soccerapp.cl:12345
