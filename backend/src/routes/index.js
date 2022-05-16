@@ -1,7 +1,7 @@
 import Router from 'koa-router'
 
 import {getAllUsers,createNewUser,changePassword,login} from './user/user.router'
-import {getAllMatch,getMatchsByRegion,getMatchsByCity,getMatchById,createNewMatch,updateMatch,deleteMatch,linkUserWithMatchFirstTeam,linkUserWithMatchSecondTeam,getAllUsersInMatch,getMatchsByUser} from './match/match.router'
+import {getAllMatch,getMatchsByRegion,getMatchsByCity,getMatchById,createNewMatch,updateMatch,deleteMatch,linkUserWithMatchFirstTeam,linkUserWithMatchSecondTeam,getAllUsersInMatch,getMatchsByUser,checkUserInMatch} from './match/match.router'
 import { getCitiesForRegions} from './location/location.router'
 const router = new Router()
 
@@ -55,6 +55,8 @@ router.post('/api/match/linkuserwithmatch/1',linkUserWithMatchFirstTeam)
 router.post('/api/match/linkuserwithmatch/2',linkUserWithMatchSecondTeam)
 
 router.post('/api/match/users',getAllUsersInMatch)
+
+router.post('/api/match/user/checkexist',checkUserInMatch)
 
 /*
 router.get('/api/users/userInfo', ctx => {

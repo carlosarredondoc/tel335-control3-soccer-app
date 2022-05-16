@@ -140,3 +140,17 @@ exports.getMatchsByUser = async (authorization) =>{
     return data
     
 }
+
+exports.checkUserInMatch = async (matchData,authorization) =>{
+    
+    let token = authorization
+    let payload = jwt.decode(token.split(' ')[1], jwtSecret);
+    let match = await User_Match.findOne({where:{userId: payload.id, matchId: matchData.id}})
+
+    if (match){
+        return true
+    }else{
+        return false
+    }
+    
+}

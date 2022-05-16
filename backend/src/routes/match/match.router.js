@@ -61,6 +61,12 @@ exports.getMatchsByUser= async (ctx) => {
     return ctx
 } 
 
+exports.checkUserInMatch = async (ctx) =>{
+    let message = await matchActions.checkUserInMatch(ctx.request.body,ctx.header.authorization)
+    ctx.body = {"exist":message}
+    return ctx
+}
+
 /*
 exports.removeUser = (ctx) => {
     userActions.removeUser(ctx.params.rol)
