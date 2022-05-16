@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
-import BotonUnirse from './BotonUnirse';
 import Equipo from './Equipo'
 const url = 'http://localhost:8000/'
 
@@ -19,7 +18,7 @@ const Partido = ({ ciudadPartido, token, zona }) => {
     return (
         <>
             {
-                partidos.length == 0 ?
+                partidos.length === 0 ?
                     <div className='partidos-card-partidos'>
                         <h1 className='partidos-card-partidos-no'>No Hay Partidos Disponibles</h1>
                     </div>
@@ -27,7 +26,7 @@ const Partido = ({ ciudadPartido, token, zona }) => {
                     ciudadPartido ? partidos.map((partido, key) => {
                         return (
 
-                            ciudadPartido == partido.city ?
+                            ciudadPartido === partido.city ?
                                 <div key={key} className='partidos-card-partidos'>
                                     <div className='partidos-card-partidos-titulo'>
                                         <h1>{partido.nameMatch}</h1>

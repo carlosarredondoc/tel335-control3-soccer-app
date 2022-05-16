@@ -54,7 +54,7 @@ const MisPartidos = ({ setMisPartidos, token }) => {
                 </div>
                 <>
                     {
-                        partidos.length == 0 ?
+                        partidos.length === 0 ?
                             <div className='partidos-card-partidos'>
                                 <h1 className='partidos-card-partidos-no'>No Hay Partidos Disponibles</h1>
                             </div>

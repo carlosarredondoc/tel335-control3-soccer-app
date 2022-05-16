@@ -7,9 +7,9 @@ const BotonUnirse = ({ cupos, equipo, token, id, usuariosEquipo1, setEquipo1, us
         axios.post(url + 'api/match/linkuserwithmatch/' + equipo, {
             id: id
         }, { headers: { 'Authorization': `Bearer ${token}` } })
-        if (equipo == 1) {
+        if (equipo === 1) {
             setEquipo1(usuariosEquipo1 + 1)
-        } else if (equipo == 2) {
+        } else if (equipo === 2) {
             setEquipo2(usuariosEquipo2 + 1)
         }
         checkUser()
