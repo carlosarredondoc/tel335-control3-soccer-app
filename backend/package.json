@@ -1,0 +1,42 @@
+{
+  "name": "Backend Soccer App",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf src && babel src --out-dir dist  --copy-files",
+    "start": "node src/index.js",
+    "start:dev": "nodemon --exec babel-node src/index.js"
+  },
+  "authors": [
+    "Carlos Arredondo",
+    "Jonathan Pedraza",
+    "Lucas Navarro"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^6.3.1",
+    "@koa/cors": "^3.3.0",
+    "bcrypt": "^5.0.1",
+    "dpacl": "^1.1.0",
+    "jwt-simple": "^0.5.6",
+    "koa": "^2.13.4",
+    "koa-body": "^4.2.0",
+    "koa-jwt": "^4.0.3",
+    "koa-router": "^10.1.1",
+    "path-to-regexp": "^6.2.1",
+    "sequelize": "^6.19.0",
+    "sqlite3": "^5.0.8"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.8",
+    "@babel/node": "^7.16.8",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-object-rest-spread": "^7.17.3",
+    "@babel/preset-env": "^7.16.11",
+    "nodemon": "^2.0.15",
+    "rimraf": "^3.0.2"
+  }
+}
