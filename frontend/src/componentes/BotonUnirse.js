@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 const url = 'http://localhost:8000/'
 
 const BotonUnirse = ({ cupos, equipo, token, id, usuariosEquipo1, setEquipo1, usuariosEquipo2, setEquipo2, pertenecer, checkUser }) => {

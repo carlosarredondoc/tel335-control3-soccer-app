@@ -7,36 +7,20 @@ import Equipo from './Equipo';
 const url = 'http://localhost:8000/'
 
 const MisPartidos = ({ setMisPartidos, token }) => {
-    const [regiones, setRegiones] = useState([])
-    const [ciudades, setCiudades] = useState([])
-    const [region, setRegion] = useState('')
-    const [data, setData] = useState()
     const [partidos, setPartidos] = useState([])
 
     const cargarLocaciones = async () => {
-        const respuesta = await axios.get(url + 'api/location/allcities')
-        setRegiones(Object.keys(respuesta.data).map((region) => (
-            region
-        )))
-        const respuesta2 = await axios.get(url + 'api/match/user', {
+        const respuesta = await axios.get(url + 'api/match/user', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
         })
-        setPartidos([...respuesta2.data.owner_matchs, ...respuesta2.data.other_matchs])
-        setData(respuesta.data)
+        setPartidos([...respuesta.data.owner_matchs, ...respuesta.data.other_matchs])
     }
-    useEffect(() => { console.log(partidos) }, [partidos])
     useEffect(() => {
         cargarLocaciones()
     }, [])
-    useEffect(() => {
-        for (let key in data) {
-            if (key === region) {
-                setCiudades(data[key])
-            }
-        }
-    }, [region])
+
 
     return (
         <div className='partidos-contenedor'>
